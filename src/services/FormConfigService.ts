@@ -1,23 +1,5 @@
-// src/services/FormConfigService.ts
+import { CompanyConfig, FormField } from "../types/formTypes";
 
-export type FormField = {
-    Label: string;
-    Type: string;
-    Validation?: {
-      required?: boolean;
-      pattern?: string;
-    };
-    Options?: string[];
-  };
-  
-  export type CompanyConfig = {
-    FormFields: FormField[];
-  };
-  
-  export type FormConfig = {
-    [company: string]: CompanyConfig;
-  };
-  
   export class FormConfigService {
     static async loadConfig(): Promise<{ [key: string]: CompanyConfig }> {
       const response = await fetch('/formConfig.json');

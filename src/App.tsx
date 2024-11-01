@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import DynamicForm from './components/DynamicForm';
 import { Select, MenuItem, FormControl, InputLabel, Box } from '@mui/material';
-import { FormConfigService, FormField } from './services/FormConfigService';
+import { FormConfigService } from './services/FormConfigService';
+import { FormField } from './types/formTypes';
 import './App.css'
 
 const App: React.FC = () => {
@@ -18,7 +19,6 @@ const App: React.FC = () => {
   }, []);
 
   const handleSelectCompany = async (company: string) => {
-    debugger
     if (company !== selectedCompany) {
       const config = await FormConfigService.getCompanyForm(company);
       setSelectedCompany(company);

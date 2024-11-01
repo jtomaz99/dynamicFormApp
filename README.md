@@ -1,50 +1,53 @@
-# React + TypeScript + Vite
+# Dynamic Form App
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This project is a React application designed to generate dynamic forms based on external JSON configuration. The application allows new forms to be added easily by editing the configuration file without altering the code.
 
-Currently, two official plugins are available:
+## 🚀 Technologies and Tools
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- **Frontend**: React with TypeScript, using Vite
+- **UI Framework**: Material UI
+- **External Configuration**: JSON in the frontend, simulating an API
+- **Key Patterns and Principles**: SOLID, separation of concerns, React Design Patterns
 
-## Expanding the ESLint configuration
+## 📋 Objective
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+The goal of this project is to create an application capable of generating dynamic forms based on a JSON file. When selecting a company from the dropdown, its customized form is displayed. This format is highly extensible, allowing new forms to be added simply by editing the configuration JSON.
 
-- Configure the top-level `parserOptions` property like this:
+---
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+## 📂 File Structure
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+- `public/`
+  - `formConfig.json`: JSON file containing the configuration for each form, defining fields and validations for each company.
 
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
+- `src/`
+  - `App.tsx`: Main application component that handles company selection and renders the dynamic form.
+  - `components/`
+    - `DynamicForm.tsx`: Component responsible for rendering the form based on the configuration passed as props.
+  - `services/`
+    - `FormConfigService.ts`: Service for loading and handling the form configuration, managing the JSON file reading.
+  - `types/`
+    - `formTypes.ts`: Defines TypeScript types used for form fields, including validations.
 
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
-```
+---
+
+## 🛠️ Installation and Setup
+
+### Prerequisites
+
+- **Node.js** and **npm** installed. [Install Node.js](https://nodejs.org/)
+
+### Steps
+
+1. **Clone the Repository**
+   ```bash
+   git clone https://github.com/jtomaz99/dynamicFormApp.git
+   cd dynamicFormApp
+
+2. **Install Dependencies**
+   ```bash
+   npm install
+
+3. **Run the Application**
+   ```bash
+   npm run dev
