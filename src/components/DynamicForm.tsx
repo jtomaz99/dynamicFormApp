@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { TextField, MenuItem, Box } from '@mui/material';
-import { FormField } from '../services/FormConfigService';
+import { FormField } from '../types/formTypes';
 
 interface FormProps {
   formConfig: FormField[];

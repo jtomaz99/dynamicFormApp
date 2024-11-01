@@ -10,7 +10,7 @@ import { CompanyConfig, FormField } from "../types/formTypes";
     static async getCompanyForm(company: string): Promise<FormField[]> {
       const config = await FormConfigService.loadConfig();
       const fields = config[company]?.FormFields || [];
-      console.log('fields for company:', company, fields); // Adicione esta linha para verificação
+      console.log('fields for company:', company, fields);
       return fields;
     }
   }
